@@ -7,11 +7,11 @@ numero =int(numero)
 numeroAleatorio=random.choice(dado)
 
 if numero==numeroAleatorio:
-    print("Usted a adivinado el numero")
+    print("Usted ha adivinado el numero")
 
 elif numero>6 or numero<1:
     print("El numero esta fuera de rango")
 
 else:
-    print("Usted no a adivinado")
+    print("Usted no ha adivinado")
 
