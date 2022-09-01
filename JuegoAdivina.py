@@ -9,7 +9,6 @@ interaccion por consola con input()
 muestreo por pantalla con print()
 '''
 
-
 import random #trae la libreria random para elementos aleatorios
 
 dado=[1,2,3,4,5,6] #creo una lista de numeros
@@ -31,6 +30,6 @@ while numero!=numeroAleatorio:  #construccion del loop condicional mientras la v
     elif numero>6 or numero<1: #compara si los numero son mayores a 6 o menores a 1 y pido otro numero
         print("El numero esta fuera de rango")
 
-    else: #si no imprimo que no adivino y pido otro numero
+    else: #si no, imprimo que no adivino y pido otro numero
         print("Usted no ha adivinado")
 
