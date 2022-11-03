@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="ZrOuFHnyNva_VhoxYvR3" name="Clases">
-        <mxGraphModel dx="788" dy="459" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="818" dy="459" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="V36Fl_7t5BoSQpRkXxEx-0"/>
                 <mxCell id="V36Fl_7t5BoSQpRkXxEx-1" parent="V36Fl_7t5BoSQpRkXxEx-0"/>
@@ -282,7 +282,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="LrRJUENodQ0jW-7DTB09" name="Casos de Usos">
-        <mxGraphModel dx="788" dy="459" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="548" dy="459" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
