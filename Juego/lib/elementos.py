@@ -2,7 +2,9 @@
 # la palabra reservada pass sirve para decirle a python que no tenemos codigo escrito aun para nuestra funcion, sin esta palabra 
 # el programa tira error.
 
-
+import pygame
+from pygame.locals import *
+pygame.init()
 #definimos la clase abstracta y super clase ELEMENTOS
 class Elementos: 
     #atributos creado con su constructor (def __init__)
@@ -18,8 +20,10 @@ class Elementos:
     def destruir(self):
         pass
     
-    def crear(self):
-        pass   
+    def crear(self, puntx,punty):
+        self.puntox=puntx
+        self.puntoy=punty
+        
 # fin de clase Elementos
 
 
@@ -37,10 +41,19 @@ class Jugador(Nave):
     def __init__(self):
         self.botonDerecha="KEY_RIGHT"
         self.botonIzquierda="KEY_LEFT"
-        self.botonDisparo="KEY_A"
+        self.botonDisparo="K_BACKSPACE"
     
-    def movimientos(self,x):
-        pass
+    def movimientos(self,velocidad,tecla):
+        if tecla==0:
+            if self.puntox<=615:
+               self.puntox=self.puntox+velocidad
+        if tecla==1:
+            if self.puntox>=0:
+               self.puntox=self.puntox-velocidad
+
+
+
+       
     
 #fin d clase Jugador
 

@@ -8,9 +8,9 @@
  
  Vídeo explicativo: http://youtu.be/vRB_983kUMc
 """
- 
+ #zona de importacion de recusos como librerias y clase
 import pygame
- 
+from lib.elementos import Jugador , Escenario #importamos la clase que queremos usar de la carpeta lib, del archivo elemento
  
 # Definimos algunos colores
 NEGRO = (0, 0 ,0)
@@ -28,7 +28,36 @@ pygame.init()
 dimensiones = [700,500]
 pantalla = pygame.display.set_mode(dimensiones) 
 pygame.display.set_caption("Mi Primer juego en Informática")
-  
+
+#  --------------------Espacio para generar los objetos--------------------
+
+#generamos el objeto jugador
+
+jugador1=Jugador()
+imagenNave=pygame.image.load('Juego/recursos/Nave.png')
+jugador1.ancho=100
+jugador1.alto=100
+jugador1.imagen=pygame.transform.scale(imagenNave, (jugador1.ancho,jugador1.alto))
+jugador1.crear(300,400)
+jugador1.orientacion=0
+
+fondo= Escenario()
+imagenFondo=pygame.image.load('Juego/recursos/fondo.png')
+fondo.ancho=700
+fondo.alto=500
+fondo.imagen=pygame.transform.scale(imagenFondo, (fondo.ancho,fondo.alto))
+fondo.crear(0,0)
+
+
+
+
+
+
+
+
+
+
+#---------------------------- fin de espacio  de creacion de los objetos ------------------- 
 #El bucle se ejecuta hasta que el usuario hace click sobre el botón de cierre.
  
 hecho = False
@@ -38,16 +67,22 @@ hecho = False
  
 reloj = pygame.time.Clock()
 
-movix=20
-moviy=20
-direccion="abajo"
-  
 # -------- Bucle principal del Programa -----------
 while not hecho: #While hecho == False: o defininrlo While hecho != True: 
     # --- Bucle principal de eventos
     for evento in pygame.event.get():
+        
         if evento.type == pygame.QUIT: 
             hecho = True
+        if evento.type == pygame.KEYDOWN:
+            if evento.key==pygame.K_RIGHT:
+                jugador1.movimientos(10,0)
+            if evento.key==pygame.K_LEFT:
+                jugador1.movimientos(10,1)
+            if evento.key==pygame.K_BACKSPACE:
+            
+    
+
         
     
     
@@ -58,32 +93,22 @@ while not hecho: #While hecho == False: o defininrlo While hecho != True:
     # Primero, limpia la pantalla con blanco. No vayas a poner otros comandos de dibujo encima 
     # de esto, de otra forma serán borrados por este comando:
     
+
+    pantalla.fill(ROJO)
+    pantalla.blit(fondo.imagen, [fondo.puntox, fondo.puntoy])
+    pantalla.blit(jugador1.imagen, [jugador1.puntox, jugador1.puntoy])
     
-    #creo un rectangolo en la plantalla
-    if moviy<400 and direccion=="abajo":
-        pantalla.fill(VERDE)
-        pygame.draw.ellipse(pantalla, ROJO, [movix, moviy, 100, 100])
-        pygame.draw.rect(pantalla, ROJO, [movix+100, moviy+10, 100, 100])
-        pygame.draw.ellipse(pantalla, ROJO, [movix+200, moviy+20, 100, 100])
-        pygame.draw.rect(pantalla, ROJO, [movix+300, moviy+30, 100, 100])
-        pygame.draw.ellipse(pantalla, ROJO, [movix+400, moviy+50, 100, 100])
-        moviy=moviy+10
-    if moviy>=400:
-        direccion="arriba"
-    if moviy>0 and direccion=="arriba":
-        pantalla.fill(ROJO)
-        pygame.draw.rect(pantalla, VERDE, [movix, moviy+50, 100, 100])
-        pygame.draw.ellipse(pantalla, VERDE, [movix+100, moviy+30, 100, 100])
-        pygame.draw.rect(pantalla, VERDE, [movix+200, moviy+20, 100, 100])
-        pygame.draw.ellipse(pantalla, VERDE, [movix+300, moviy+10, 100, 100])
-        pygame.draw.rect(pantalla, VERDE, [movix+400, moviy, 100, 100])
-        moviy=moviy-10
-    if moviy<=0:
-        direccion="abajo"
-        
-    #movix=movix+10
-    
-    
+    '''
+    if jugador1.puntox<=615 and jugador1.orientacion==0:
+        jugador1.crear(jugador1.puntox+5,jugador1.puntoy )
+    if jugador1.puntox>615 :   
+        jugador1.orientacion=1
+    if jugador1.puntox>=0 and jugador1.orientacion==1:
+        jugador1.crear(jugador1.puntox-5,jugador1.puntoy )
+    if jugador1.puntox<0:
+        jugador1.orientacion=0
+    ''' 
+
     # --- Avanzamos y actualizamos la pantalla con lo que hemos dibujado.
     pygame.display.flip()
  
