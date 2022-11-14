@@ -1,13 +1,4 @@
-""" 
- Mostramos como usar un sprite respaldado por un gráfico.
-  
- Sample Python/Pygame Programs
- Simpson College Computer Science
- http://programarcadegames.com/
- http://simpson.edu/computer-science/
- 
- Vídeo explicativo: http://youtu.be/vRB_983kUMc
-"""
+
  #zona de importacion de recusos como librerias y clase
 import pygame
 from lib.elementos import Jugador , Escenario #importamos la clase que queremos usar de la carpeta lib, del archivo elemento
@@ -31,7 +22,7 @@ pygame.display.set_caption("Mi Primer juego en Informática")
 
 #  --------------------Espacio para generar los objetos--------------------
 
-#generamos el objeto jugador
+#generamos el objeto jugador ------------------------------------------------
 
 jugador1=Jugador()
 imagenNave=pygame.image.load('Juego/recursos/Nave.png')
@@ -41,6 +32,7 @@ jugador1.imagen=pygame.transform.scale(imagenNave, (jugador1.ancho,jugador1.alto
 jugador1.crear(300,400)
 jugador1.orientacion=0
 
+#Generamos el Objeto Escenario -----------------------------------------------
 fondo= Escenario()
 imagenFondo=pygame.image.load('Juego/recursos/fondo.png')
 fondo.ancho=700
@@ -49,21 +41,11 @@ fondo.imagen=pygame.transform.scale(imagenFondo, (fondo.ancho,fondo.alto))
 fondo.crear(0,0)
 
 
-
-
-
-
-
-
-
-
 #---------------------------- fin de espacio  de creacion de los objetos ------------------- 
+
 #El bucle se ejecuta hasta que el usuario hace click sobre el botón de cierre.
- 
 hecho = False
- 
-  
-# Se usa para establecer cuan rápido se actualiza la pantalla
+# Se usa para establecer cuan rápido se actualiza la pantalla (Objeto reloj)
  
 reloj = pygame.time.Clock()
 
@@ -98,16 +80,7 @@ while not hecho: #While hecho == False: o defininrlo While hecho != True:
     pantalla.blit(fondo.imagen, [fondo.puntox, fondo.puntoy])
     pantalla.blit(jugador1.imagen, [jugador1.puntox, jugador1.puntoy])
     
-    '''
-    if jugador1.puntox<=615 and jugador1.orientacion==0:
-        jugador1.crear(jugador1.puntox+5,jugador1.puntoy )
-    if jugador1.puntox>615 :   
-        jugador1.orientacion=1
-    if jugador1.puntox>=0 and jugador1.orientacion==1:
-        jugador1.crear(jugador1.puntox-5,jugador1.puntoy )
-    if jugador1.puntox<0:
-        jugador1.orientacion=0
-    ''' 
+   
 
     # --- Avanzamos y actualizamos la pantalla con lo que hemos dibujado.
     pygame.display.flip()
